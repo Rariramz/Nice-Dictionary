@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
 import background from "../images/b10.jpg";
 import texture from "../images/texture.jpg";
 import { styled } from "@mui/material/styles";
 import { Box, Paper, Grid, Button, Typography, TextField } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
+import { useDispatch, useSelector } from "react-redux";
+import { setWord } from "../toolkitRedux/dictionarySlice";
 
 const ContainerImage = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -46,8 +48,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 }));
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
-  padding: 0,
-  margin: 0,
   background: theme.palette.secondary.main,
   borderRadius: 5,
   outline: `5px dotted ${theme.palette.secondary.dark}`,
@@ -56,6 +56,23 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 }));
 
 const SearchContainer = () => {
+  const storeWord = useSelector((state) => state.dictionary.word);
+  const [currentWord, setCurrentWord] = useState(storeWord);
+  const dispatch = useDispatch();
+
+  const handleButtonClick = () => {
+    dispatch(setWord(currentWord.trim()));
+    setCurrentWord("");
+  };
+  const handleInputKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleButtonClick();
+    }
+  };
+  const handleInputOnChange = (e) => {
+    setCurrentWord(e.target.value);
+  };
+
   return (
     <ContainerImage>
       <Logo />
@@ -74,8 +91,11 @@ const SearchContainer = () => {
               id="searchButton"
               placeholder="Search..."
               maxwidth="true"
+              value={currentWord}
+              onChange={handleInputOnChange}
+              onKeyDown={handleInputKeyDown}
             />
-            <Button>
+            <Button onClick={handleButtonClick}>
               <CheckIcon color="success" fontSize="large" />
             </Button>
           </StyledPaper>

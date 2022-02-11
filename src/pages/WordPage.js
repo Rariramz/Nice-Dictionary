@@ -3,6 +3,7 @@ import Logo from "../components/Logo";
 import texture from "../images/texture.jpg";
 import { styled } from "@mui/material/styles";
 import { Box, Paper, Grid, Button, Typography, TextField } from "@mui/material";
+import ResultWrapper from "../components/ResultWrapper";
 
 const ContainerImage = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -39,7 +40,9 @@ const WordPage = () => {
         justifyContent="center"
         style={{ minHeight: "100vh" }}
       >
-        <StyledPaper>Hello</StyledPaper>
+        <StyledPaper>
+          <ResultWrapper />
+        </StyledPaper>
       </Grid>
     </ContainerImage>
   );
