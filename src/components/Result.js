@@ -1,5 +1,11 @@
 import React from "react";
-import { Box, Grid, Typography, Divider } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+  Divider,
+  CircularProgress,
+} from "@mui/material";
 import { useSelector } from "react-redux";
 import Meanings from "./parts/Meanings";
 import Phonetics from "./parts/Phonetics";
@@ -9,7 +15,7 @@ const Result = () => {
 
   return (
     <Box>
-      {status === "loading" && <Typography>LOADING</Typography>}
+      {status === "loading" && <CircularProgress />}
       {error && <Typography>ERROR ocured: {error}</Typography>}
       {response &&
         response.map((val) => (
