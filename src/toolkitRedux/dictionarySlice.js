@@ -21,7 +21,7 @@ export const fetchData = createAsyncThunk(
 const dictionarySlice = createSlice({
   name: "dictionary",
   initialState: {
-    word: "hello",
+    word: "",
     response: null,
     status: null,
     error: null,

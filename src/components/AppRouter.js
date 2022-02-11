@@ -1,18 +1,16 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import { routes } from "../routes";
 import ErrorPage from "../pages/ErrorPage";
-import WordPage from "../pages/WordPage";
 
 const AppRouter = () => {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<HomePage />} exact />
-        <Route path="/word" element={<WordPage />} exact />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </>
+    <Routes>
+      {routes.map(({ path, component }) => (
+        <Route key={path} path={path} element={component} />
+      ))}
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
 };
 

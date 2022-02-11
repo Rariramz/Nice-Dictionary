@@ -1,30 +1,11 @@
-import React, { useEffect } from "react";
-import { styled } from "@mui/material/styles";
-import {
-  Box,
-  Paper,
-  Grid,
-  Button,
-  Typography,
-  TextField,
-  Divider,
-} from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../toolkitRedux/dictionarySlice";
+import React from "react";
+import { Box, Grid, Typography, Divider } from "@mui/material";
+import { useSelector } from "react-redux";
 import Meanings from "./parts/Meanings";
 import Phonetics from "./parts/Phonetics";
 
 const Result = () => {
-  const { word, response, status, error } = useSelector(
-    (state) => state.dictionary
-  );
-  const dispatch = useDispatch();
-
-  useEffect(async () => {
-    if (word.length) {
-      dispatch(fetchData(word));
-    }
-  }, []);
+  const { response, status, error } = useSelector((state) => state.dictionary);
 
   return (
     <Box>

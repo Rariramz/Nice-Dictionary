@@ -7,6 +7,7 @@ import { Box, Paper, Grid, Button, Typography, TextField } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { useDispatch, useSelector } from "react-redux";
 import { setWord } from "../toolkitRedux/dictionarySlice";
+import { useNavigate } from "react-router-dom";
 
 const ContainerImage = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -59,10 +60,13 @@ const SearchContainer = () => {
   const storeWord = useSelector((state) => state.dictionary.word);
   const [currentWord, setCurrentWord] = useState(storeWord);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    dispatch(setWord(currentWord.trim()));
-    setCurrentWord("");
+    if (currentWord.trim().length) {
+      dispatch(setWord(currentWord.trim()));
+      navigate(`/${currentWord}`);
+    }
   };
   const handleInputKeyDown = (e) => {
     if (e.key === "Enter") {

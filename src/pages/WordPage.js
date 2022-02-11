@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Result from "../components/Result";
 import Logo from "../components/Logo";
 import texture from "../images/texture.jpg";
 import { styled } from "@mui/material/styles";
 import { Box, Paper, Grid, Button, Typography, TextField } from "@mui/material";
-import Result from "../components/Result";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchData } from "../toolkitRedux/dictionarySlice";
 
 const ContainerImage = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -28,6 +31,13 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 }));
 
 const WordPage = () => {
+  const { word } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(async () => {
+    dispatch(fetchData(word));
+  }, []);
+
   return (
     <ContainerImage>
       <Logo />
