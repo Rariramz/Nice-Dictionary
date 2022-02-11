@@ -2,47 +2,48 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
-import { Typography, Grid, Container } from "@mui/material";
+import { Typography, Box, Paper } from "@mui/material";
 import BookmarkOutlinedIcon from "@mui/icons-material/BookmarkOutlined";
+import note from "../images/note.png";
 
-const HeaderDiv = styled(Container)(({ theme }) => ({
+const StyledBox = styled(Box)(({ theme }) => ({
+  position: "absolute",
+  backgroundImage: `Url(${note})`,
+  backgroundSize: "contain",
+  backgroundRepeat: "no-repeat",
+  padding: "17px 0 0 6px",
+  height: "200px",
+  width: "200px",
+  top: "10px",
+  right: "50px",
+}));
+const RotatedPaper = styled(Paper)(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
-  justifyContent: "space-around",
   alignItems: "center",
-  padding: theme.spacing(4),
+  justifyContent: "center",
+  transform: "rotate(-3deg)",
   background: "transparent",
-  position: "static",
+  height: "182px",
+  width: "195px",
 }));
 const LogoTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
-  fontSize: 18,
-  fontStyle: 30,
+  fontFamily: "Lobster Two",
+  color: theme.palette.primary.main,
+  fontSize: 26,
   lineHeight: 1,
 }));
 
 const Logo = () => {
   return (
-    <HeaderDiv>
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <Grid
-          spacing={0}
-          container
-          display="flex"
-          flexDirection="row"
-          alignItems="center"
-        >
-          <Grid item>
-            <LogoTypography variant="body1">Nice Dictionary</LogoTypography>
-          </Grid>
-          <Grid item>
-            <LogoTypography>
-              <BookmarkOutlinedIcon fontSize="medium" color="error" />
-            </LogoTypography>
-          </Grid>
-        </Grid>
-      </Link>
-    </HeaderDiv>
+    <StyledBox>
+      <RotatedPaper elevation={12}>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <LogoTypography>Nice Dictionary</LogoTypography>
+        </Link>
+      </RotatedPaper>
+    </StyledBox>
   );
 };
 

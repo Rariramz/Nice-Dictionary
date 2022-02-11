@@ -37,7 +37,6 @@ const dictionarySlice = createSlice({
     [fetchData.rejected]: (state, action) => {
       state.status = "rejected";
       state.error = action.payload;
-      console.log(action.payload);
     },
   },
 });
