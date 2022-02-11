@@ -19,6 +19,12 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "Poppins",
+    body1: {
+      fontSize: 18,
+    },
+    body2: {
+      fontSize: 14,
+    },
   },
   components: {
     MuiOutlinedInput: {

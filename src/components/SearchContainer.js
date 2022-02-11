@@ -40,7 +40,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   maxHeight: "80vh",
   minHeight: "30vh",
   padding: theme.spacing(5, 10),
-  margin: "1vw",
+  margin: "2vh",
   boxSizing: "border-box",
   borderRadius: 3,
   backdropFilter: "blur(0px)",
@@ -80,7 +80,7 @@ const SearchContainer = () => {
         container
         alignContent="center"
         justifyContent="center"
-        style={{ minHeight: "100vh" }}
+        style={{ minHeight: "100vh", marginTop: "-30px" }}
       >
         <BackgroundPaperImage>
           <StyledPaper elevation={3}>

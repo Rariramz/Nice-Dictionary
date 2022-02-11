@@ -33,7 +33,7 @@ const Logo = () => {
           alignItems="center"
         >
           <Grid item>
-            <LogoTypography>Nice Dictionary</LogoTypography>
+            <LogoTypography variant="body1">Nice Dictionary</LogoTypography>
           </Grid>
           <Grid item>
             <LogoTypography>

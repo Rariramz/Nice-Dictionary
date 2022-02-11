@@ -3,14 +3,13 @@ import Logo from "../components/Logo";
 import texture from "../images/texture.jpg";
 import { styled } from "@mui/material/styles";
 import { Box, Paper, Grid, Button, Typography, TextField } from "@mui/material";
-import ResultWrapper from "../components/ResultWrapper";
+import Result from "../components/Result";
 
 const ContainerImage = styled(Box)(({ theme }) => ({
   width: "100%",
-  height: "100vh",
+  minHeight: "100vh",
   backgroundImage: `Url(${texture})`,
   backgroundRepeat: "repeat",
-  position: "fixed",
 }));
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -20,9 +19,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   justifyContent: "center",
   maxWidth: "80vw",
   minWidth: "20vw",
-  maxHeight: "80vh",
-  minHeight: "30vh",
-  padding: theme.spacing(15, 25),
+  padding: theme.spacing(5, 10),
   margin: "1vw",
   boxSizing: "border-box",
   borderRadius: 3,
@@ -38,10 +35,10 @@ const WordPage = () => {
         container
         alignContent="center"
         justifyContent="center"
-        style={{ minHeight: "100vh" }}
+        style={{ minHeight: "100vh", minWidth: "80vh" }}
       >
         <StyledPaper>
-          <ResultWrapper />
+          <Result />
         </StyledPaper>
       </Grid>
     </ContainerImage>
