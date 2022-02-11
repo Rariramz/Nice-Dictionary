@@ -16,8 +16,29 @@ const Result = () => {
   return (
     <Box>
       {status === "loading" && <CircularProgress />}
-      {error && <Typography>ERROR ocured: {error}</Typography>}
-      {response &&
+      {error ? (
+        <Grid
+          container
+          container
+          flexDirection="column"
+          alignContent="center"
+          justifyContent="center"
+          spacing={3}
+        >
+          <Grid item>
+            <Typography variant="h4" textAlign="center">
+              {error.title}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="body1">{error.message}</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="body1">{error.resolution}</Typography>
+          </Grid>
+        </Grid>
+      ) : (
+        response &&
         response.map((val) => (
           <Grid
             container
@@ -53,7 +74,8 @@ const Result = () => {
               <Meanings />
             </Grid>
           </Grid>
-        ))}
+        ))
+      )}
     </Box>
   );
 };

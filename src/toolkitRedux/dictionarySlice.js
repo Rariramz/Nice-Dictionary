@@ -5,16 +5,10 @@ const baseURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 export const fetchData = createAsyncThunk(
   "dictionary/fetchData",
   async function (word, { rejectWithValue }) {
-    try {
-      const res = await fetch(baseURL + word);
-      if (!res.ok) {
-        throw new Error(`HTTP Error: ${res.status}`);
-      }
-      const data = await res.json();
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
+    const res = await fetch(baseURL + word);
+    const data = await res.json();
+    if (res.status === 404) return rejectWithValue(data);
+    return data;
   }
 );
 
@@ -43,6 +37,7 @@ const dictionarySlice = createSlice({
     [fetchData.rejected]: (state, action) => {
       state.status = "rejected";
       state.error = action.payload;
+      console.log(action.payload);
     },
   },
 });

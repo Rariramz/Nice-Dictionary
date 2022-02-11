@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { routes } from "../routes";
-import ErrorPage from "../pages/ErrorPage";
+import PageNotFound from "../pages/PageNotFound";
 
 const AppRouter = () => {
   return (
@@ -9,7 +9,7 @@ const AppRouter = () => {
       {routes.map(({ path, component }) => (
         <Route key={path} path={path} element={component} />
       ))}
-      <Route path="*" element={<ErrorPage />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };

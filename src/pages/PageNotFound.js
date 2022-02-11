@@ -13,7 +13,7 @@ const ContainerImage = styled(Box)(({ theme }) => ({
   position: "fixed",
 }));
 
-const ErrorPage = () => {
+const PageNotFound = () => {
   const error = useSelector((state) => state.dictionary.error);
   console.log(error);
 
@@ -26,11 +26,11 @@ const ErrorPage = () => {
         style={{ minHeight: "100vh" }}
       >
         <Grid item xs={8}>
-          <Typography variant="h3">ERROR :(</Typography>
+          <Typography variant="h4">Page not found :(</Typography>
         </Grid>
       </Grid>
     </ContainerImage>
   );
 };
 
-export default ErrorPage;
+export default PageNotFound;
