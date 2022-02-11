@@ -99,7 +99,10 @@ const SearchContainer = () => {
               onChange={handleInputOnChange}
               onKeyDown={handleInputKeyDown}
             />
-            <Button onClick={handleButtonClick}>
+            <Button
+              onClick={handleButtonClick}
+              style={{ alignSelf: "flex-end" }}
+            >
               <CheckIcon color="success" fontSize="large" />
             </Button>
           </StyledPaper>

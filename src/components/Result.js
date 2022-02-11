@@ -19,16 +19,17 @@ const Result = () => {
       {error ? (
         <Grid
           container
-          container
           flexDirection="column"
           alignContent="center"
           justifyContent="center"
           spacing={3}
+          style={{ minHeight: "50vh" }}
         >
           <Grid item>
             <Typography variant="h4" textAlign="center">
               {error.title}
             </Typography>
+            <Divider />
           </Grid>
           <Grid item>
             <Typography variant="body1">{error.message}</Typography>
@@ -41,7 +42,6 @@ const Result = () => {
         response &&
         response.map((val) => (
           <Grid
-            container
             container
             flexDirection="column"
             alignContent="center"
