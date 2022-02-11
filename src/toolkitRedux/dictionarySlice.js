@@ -5,10 +5,14 @@ const baseURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 export const fetchData = createAsyncThunk(
   "dictionary/fetchData",
   async function (word, { rejectWithValue }) {
-    const res = await fetch(baseURL + word);
-    const data = await res.json();
-    if (res.status === 404) return rejectWithValue(data);
-    return data;
+    try {
+      const res = await fetch(baseURL + word);
+      const data = await res.json();
+      if (res.status === 404) return rejectWithValue(data);
+      return data;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
   }
 );
 

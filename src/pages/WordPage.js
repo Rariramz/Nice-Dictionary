@@ -9,10 +9,10 @@ import { useDispatch } from "react-redux";
 import { fetchData } from "../toolkitRedux/dictionarySlice";
 
 const ContainerImage = styled(Box)(({ theme }) => ({
-  width: "100%",
   minHeight: "100vh",
   backgroundImage: `Url(${texture})`,
-  backgroundRepeat: "repeat",
+  backgroundPosition: "center",
+  backgroundAttachment: "fixed",
 }));
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -21,7 +21,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   maxWidth: "80vw",
-  minWidth: "20vw",
+  minWidth: "50vw",
   padding: theme.spacing(5, 10),
   margin: "1vw",
   boxSizing: "border-box",
@@ -45,7 +45,7 @@ const WordPage = () => {
         container
         alignContent="center"
         justifyContent="center"
-        style={{ minHeight: "100vh", minWidth: "80vh" }}
+        style={{ minHeight: "100vh" }}
       >
         <StyledPaper>
           <Result />
