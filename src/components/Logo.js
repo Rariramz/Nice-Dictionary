@@ -16,6 +16,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   width: "200px",
   top: "10px",
   right: "50px",
+  zIndex: "10",
 }));
 const RotatedPaper = styled(Paper)(({ theme }) => ({
   display: "flex",
