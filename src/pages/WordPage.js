@@ -12,15 +12,12 @@ const ContainerImage = styled(Box)(({ theme }) => ({
   backgroundImage: `Url(${texture})`,
   backgroundPosition: "center",
   backgroundAttachment: "fixed",
+  width: "100%",
 }));
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  maxWidth: "80vw",
-  minWidth: "50vw",
+  maxWidth: "80%",
+  minWidth: "30%",
   padding: theme.spacing(5, 10),
   margin: "1vw",
   boxSizing: "border-box",

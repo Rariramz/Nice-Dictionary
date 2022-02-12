@@ -37,12 +37,6 @@ const RotatedBox = styled(Box)(({ theme }) => ({
   height: "200px",
   width: "200px",
 }));
-const LogoTypography = styled(Typography)(({ theme }) => ({
-  color: theme.palette.primary.main,
-  fontSize: 26,
-  lineHeight: 1,
-  zIndex: 11,
-}));
 
 const Logo = () => {
   return (
@@ -50,7 +44,9 @@ const Logo = () => {
       <StyledBox>
         <RotatedBox>
           <Link to="/" style={{ textDecoration: "none" }}>
-            <LogoTypography>Nice Dictionary</LogoTypography>
+            <Typography style={{ color: "#000" }} variant="accentSmall">
+              Nice Dictionary
+            </Typography>
           </Link>
         </RotatedBox>
       </StyledBox>

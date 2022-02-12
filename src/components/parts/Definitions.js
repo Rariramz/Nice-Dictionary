@@ -1,11 +1,11 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 const Definitions = ({ defs }) => {
   return (
-    <>
+    <Grid container item spacing={1} flexDirection="column">
       {defs.map((def) => (
-        <Box>
+        <Grid item>
           <Typography variant="body2">
             <b>Definition</b>: <i>{def.definition}</i>
           </Typography>
@@ -18,9 +18,9 @@ const Definitions = ({ defs }) => {
           <Typography variant="body2">
             <b>Antonyms:</b> <i>{def.antonyms.join(", ") || "-"}</i>
           </Typography>
-        </Box>
+        </Grid>
       ))}
-    </>
+    </Grid>
   );
 };
 

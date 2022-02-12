@@ -24,6 +24,14 @@ const theme = createTheme({
     body2: {
       fontSize: 14,
     },
+    accentBig: {
+      fontSize: 42,
+      fontFamily: "Lobster Two",
+    },
+    accentSmall: {
+      fontSize: 20,
+      fontFamily: "Lobster Two",
+    },
   },
   components: {
     MuiOutlinedInput: {

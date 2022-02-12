@@ -86,7 +86,7 @@ const SearchContainer = () => {
       >
         <BackgroundPaperImage>
           <StyledPaper elevation={3}>
-            <Typography variant="h4" noWrap>
+            <Typography variant="accentBig" noWrap>
               Let's find out!
             </Typography>
             <StyledTextField
