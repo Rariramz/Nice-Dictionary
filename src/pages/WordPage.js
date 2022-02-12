@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Result from "../components/Result";
-import Logo from "../components/Logo";
 import texture from "../images/texture.jpg";
 import { styled } from "@mui/material/styles";
 import { Box, Paper, Grid, Button, Typography, TextField } from "@mui/material";
@@ -40,7 +39,6 @@ const WordPage = () => {
 
   return (
     <ContainerImage>
-      <Logo />
       <Grid
         container
         alignContent="center"

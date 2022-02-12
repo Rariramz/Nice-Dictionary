@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Logo from "./Logo";
 import background from "../images/b10.jpg";
 import texture from "../images/texture.jpg";
 import { styled } from "@mui/material/styles";
@@ -79,7 +78,6 @@ const SearchContainer = () => {
 
   return (
     <ContainerImage>
-      <Logo />
       <Grid
         container
         alignContent="center"
