@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
 import { Typography, Box, Paper } from "@mui/material";
 import BookmarkOutlinedIcon from "@mui/icons-material/BookmarkOutlined";
 import note from "../images/note.png";
+import { useDispatch } from "react-redux";
+import { clearAll } from "../toolkitRedux/dictionarySlice";
 
 const RotatedPaper = styled(Paper)(({ theme }) => ({
   display: "flex",
@@ -39,15 +41,25 @@ const RotatedBox = styled(Box)(({ theme }) => ({
 }));
 
 const Logo = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogoOnClick = () => {
+    dispatch(clearAll());
+    navigate("/");
+  };
+
   return (
     <RotatedPaper elevation={12}>
       <StyledBox>
         <RotatedBox>
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <Typography style={{ color: "#000" }} variant="accentSmall">
-              Nice Dictionary
-            </Typography>
-          </Link>
+          <Typography
+            style={{ cursor: "pointer" }}
+            variant="accentSmall"
+            onClick={handleLogoOnClick}
+          >
+            Nice Dictionary
+          </Typography>
         </RotatedBox>
       </StyledBox>
     </RotatedPaper>

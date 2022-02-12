@@ -19,7 +19,7 @@ export const fetchData = createAsyncThunk(
 const dictionarySlice = createSlice({
   name: "dictionary",
   initialState: {
-    word: "",
+    word: null,
     response: null,
     status: null,
     error: null,
@@ -27,6 +27,12 @@ const dictionarySlice = createSlice({
   reducers: {
     setWord(state, action) {
       state.word = action.payload;
+    },
+    clearAll(state) {
+      state.response = null;
+      state.error = null;
+      state.status = null;
+      state.word = null;
     },
   },
   extraReducers: {
@@ -46,4 +52,4 @@ const dictionarySlice = createSlice({
 });
 
 export default dictionarySlice.reducer;
-export const { setWord } = dictionarySlice.actions;
+export const { setWord, clearAll } = dictionarySlice.actions;
